@@ -1,0 +1,30 @@
+version: 2
+services:
+  # The first container will do the scrubbing (checks that the checksums match). See shatag-documentation for more information.
+  # With the default options, the log will only display alerts about corrupted files.
+  shatag:
+    image: kalaksi/shatag
+    container_name: shatag
+    cap_drop:
+      - ALL
+    volumes:
+      - /mnt/yourdata:/data
+    # Example of changing the user
+    # user: '2000:2000'
+    # Example of using Rancher OS's cron-labels for periodic scrubbing
+    # labels:
+    #   io.rancher.container.start_once: 'true'
+    #   cron.schedule: 0 30 6 ? * 1
+    #   cron.action: restart
+
+  # The second container will monitor the files and update the checksums if files are modified or created.
+  # The log will display the filenames that have changed.
+  shatagd:
+    image: kalaksi/shatag
+    container_name: shatagd
+    cap_drop:
+      - ALL
+    volumes:
+      - /mnt/yourdata:/data
+    environment:
+      SHATAG_RUN_DAEMON: 1
