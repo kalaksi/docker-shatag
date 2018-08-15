@@ -1,4 +1,5 @@
 FROM debian:stretch-slim
+MAINTAINER Kalaksi <kalaksi@users.noreply.github.com>
 
 # Daemon mode starts the shatagd daemon instead of one-time check with shatag.
 ENV SHATAG_RUN_DAEMON 0
