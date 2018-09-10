@@ -8,7 +8,8 @@ services:
     cap_drop:
       - ALL
     volumes:
-      - /mnt/yourdata:/data
+      - /mnt/yourdata_one:/data/one
+      - /mnt/yourdata_two:/data/two
     # Example of changing the user
     # user: '2000:2000'
     # Example of using Rancher OS's cron-labels for periodic scrubbing
@@ -24,7 +25,7 @@ services:
     container_name: shatagd
     cap_drop:
       - ALL
-    volumes:
-      - /mnt/yourdata:/data
+    volumes_from:
+      - shatag
     environment:
       SHATAG_RUN_DAEMON: 1

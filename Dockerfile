@@ -11,8 +11,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
-VOLUME /data
-
 # The default UID is 1000 since it's a common UID for the first user.
 # Use --user with docker run or user-key with docker-compose to change it.
 USER 1000:1000
