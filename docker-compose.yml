@@ -29,3 +29,6 @@ services:
       - shatag
     environment:
       SHATAG_RUN_DAEMON: 1
+    # With Rancher, a sidekick relationship is required for volumes_from
+    # labels:
+    #   io.rancher.sidekicks: shatag
