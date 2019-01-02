@@ -8,7 +8,7 @@ ENV SHATAG_OPTIONS "-qftr"
 
 # NOTE: Here we make sure that locales are set up correctly since python/pyinotify counts on that.
 # Locales will be used to determine the character encoding of filenames and in some cases
-# the environment does not have the correct locale set up so pyinotify will crash with
+# the environment does not have the correct locale set up so shatagd will crash with
 # filenames that have non-ascii characters in them.
 ARG SHATAG_LOCALE="en_US.UTF-8 UTF-8"
 
