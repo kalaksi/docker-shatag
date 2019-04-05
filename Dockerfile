@@ -25,11 +25,11 @@ RUN echo "$SHATAG_LOCALE" > /etc/locale.gen && \
 # The default UID is 1000 since it's a common UID for the first user.
 # Use --user with docker run or user-key with docker-compose to change it.
 USER 1000:1000
-ENTRYPOINT set -eu; \
-           # Locale-settings are not read by default so doing it here.
-           set -a; . /etc/default/locale; set +a; \
-           if [ $SHATAG_RUN_DAEMON -ne 0 ]; then \
-               exec python3 -u /usr/bin/shatagd $SHATAGD_OPTIONS /data; \
-           else \
-               exec python3 -u /usr/bin/shatag $SHATAG_OPTIONS /data; \
-           fi
+CMD set -eu; \
+    # Locale-settings are not read by default so doing it here.
+    set -a; . /etc/default/locale; set +a; \
+    if [ $SHATAG_RUN_DAEMON -ne 0 ]; then \
+        exec python3 -u /usr/bin/shatagd $SHATAGD_OPTIONS /data; \
+    else \
+        exec python3 -u /usr/bin/shatag $SHATAG_OPTIONS /data; \
+    fi
