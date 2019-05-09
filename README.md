@@ -20,8 +20,9 @@ To remedy the situation, these images have been written with security and simpli
 |-------------------------|:----:|-------|
 |Don't run as root        |✅    | Never run as root unless necessary.|
 |Official base image      |✅    | |
-|Drop extra CAPabilities  |✅    | See ```docker-compose.yml``` |
-|No default passwords     |✅    | No static default passwords. That would make the container insecure by default.|
+|Drop extra CAPabilities  |✅    | See ```docker-compose.yml```. |
+|No default passwords     |—      | Not applicable. |
+|Support secrets-files    |—     | Not applicable. |
 |Handle signals properly  |✅    | |
 |Simple Dockerfile        |✅    | Keep everything in the Dockerfile if reasonable.|
 |Versioned tags           |✅    | Offer versioned tags for stability.|
