@@ -1,10 +1,15 @@
-FROM debian:stretch-slim
+FROM debian:buster-slim
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # Daemon mode starts the shatagd daemon instead of one-time check with shatag.
 ENV RUN_DAEMON 0
+# -r: Recurse through subdirectories
+# -v: Report encountered files that have an outdated or missing checksum.
 ENV SHATAGD_OPTIONS "-rv"
-ENV SHATAG_OPTIONS "-qftr"
+# -q: Do not display the valid checksums when they are found.
+# -t: Compute new checksums for files that don't have one, or when it is outdated.
+# -s: Recompute the checksum even if the timestamp indicates it would not be needed, and report inconsistencies. Useful to detect silent corruption.
+ENV SHATAG_OPTIONS "-qtsr"
 
 # NOTE: Here we make sure that locales are set up correctly since python/pyinotify counts on that.
 # Locales will be used to determine the character encoding of filenames and in some cases
