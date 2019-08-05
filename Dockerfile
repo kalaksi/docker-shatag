@@ -20,6 +20,7 @@ ARG SHATAG_LOCALE="en_US.UTF-8 UTF-8"
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       locales \
+      python3-setuptools \
       shatag && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
