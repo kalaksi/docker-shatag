@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # Daemon mode starts the shatagd daemon instead of one-time check with shatag.
-ENV SHATAG_RUN_DAEMON 0
+ENV RUN_DAEMON 0
 ENV SHATAGD_OPTIONS "-rv"
 ENV SHATAG_OPTIONS "-qftr"
 
@@ -28,7 +28,7 @@ USER 1000:1000
 CMD set -eu; \
     # Locale-settings are not read by default so doing it here.
     set -a; . /etc/default/locale; set +a; \
-    if [ $SHATAG_RUN_DAEMON -ne 0 ]; then \
+    if [ $RUN_DAEMON -ne 0 ]; then \
         exec python3 -u /usr/bin/shatagd $SHATAGD_OPTIONS /data; \
     else \
         exec python3 -u /usr/bin/shatag $SHATAG_OPTIONS /data; \
