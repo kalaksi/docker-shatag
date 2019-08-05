@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:10.0-slim
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # Daemon mode starts the shatagd daemon instead of one-time check with shatag.
@@ -15,6 +15,7 @@ ENV SHATAG_OPTIONS "-qtsr"
 # Locales will be used to determine the character encoding of filenames and in some cases
 # the environment does not have the correct locale set up so shatagd will crash with
 # filenames that have non-ascii characters in them.
+# TODO: need to test if this is still true for the new version in Buster.
 ARG SHATAG_LOCALE="en_US.UTF-8 UTF-8"
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
