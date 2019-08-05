@@ -6,6 +6,9 @@
 
 ## What is this container for?
 This container contains ```shatag``` which is a tool for file checksumming (see shatag documentation).  
+By default, the filesystem's extended attributes are used for storing the hashes (available in modern filesystems, such as ext4).
+This allows the information to be stored alongside the file. When copying the files you'll want to make sure that extended attrs also get copied.
+
 The ```docker-compose.yml``` contains an example of running ```shatagd``` for file monitoring and ```shatag``` for checksum verification.  
 
 ## Why use this container?
