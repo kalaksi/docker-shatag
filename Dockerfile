@@ -19,6 +19,7 @@ ARG SOURCE_REVISION="213"
 # The package in Debian Buster is borked. Building the most recent version from source.
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends \
       build-essential \
+      libyaml-dev \
       mercurial \
       python3-dev \
       python3-pip \
