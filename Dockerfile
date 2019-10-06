@@ -23,12 +23,13 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-rec
       mercurial \
       python3-dev \
       python3-pip \
+      python3-pyinotify \
       python3-setuptools \
       python3-venv
 RUN cd /opt && \
     hg clone https://bitbucket.org/maugier/shatag -r "$SOURCE_REVISION" && \
     cd shatag && \
-    python3 -m venv venv && \
+    python3 -m venv venv --system-site-packages && \
     ./venv/bin/python setup.py install
 
 
@@ -42,12 +43,13 @@ ARG SHATAG_LOCALE="en_US.UTF-8 UTF-8"
 
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends \
       locales \
+      python3-pyinotify \
       python3-setuptools && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 RUN echo "$SHATAG_LOCALE" > /etc/locale.gen && \
     locale-gen && \
-    update-locale LC_ALL=$(echo "$SHATAG_LOCALE" | sed 's/\s.*//') 
+    update-locale LC_ALL=$(echo "$SHATAG_LOCALE" | sed 's/\s.*//')
 
 COPY --from=builder /opt/ /opt/
 
