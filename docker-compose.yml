@@ -25,4 +25,4 @@ services:
     # 10s default doesn't seem to be enough
     stop_grace_period: 20s
     environment:
-      SHATAG_RUN_DAEMON: 1
+      RUN_DAEMON: 'yes'

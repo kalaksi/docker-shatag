@@ -57,7 +57,7 @@ USER 1000:1000
 CMD set -eu; \
     # Locale-settings are not read by default so doing it here.
     set -a; . /etc/default/locale; set +a; \
-    if [ $RUN_DAEMON -ne 0 ]; then \
+    if [ "$RUN_DAEMON" = "1" ] || [ "$RUN_DAEMON" = "yes" ] || [ "${SHATAG_RUN_DAEMON:-0}" != "0" ]; then \
         exec /opt/shatag/venv/bin/shatagd $SHATAGD_OPTIONS /data; \
     else \
         exec /opt/shatag/venv/bin/shatag $SHATAG_OPTIONS /data; \
