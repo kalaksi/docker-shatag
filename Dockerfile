@@ -1,4 +1,4 @@
-FROM debian:10.0-slim AS base
+FROM debian:10.2-slim AS base
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # Daemon mode starts the shatagd daemon instead of one-time check with shatag.
