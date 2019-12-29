@@ -1,6 +1,6 @@
 
 ## Resources
-- [Docker Hub repository](https://registry.hub.docker.com/u/kalaksi/shatag/)
+- [Docker Hub repository](https://hub.docker.com/r/kalaksi/shatag/)
 - [GitHub repository](https://github.com/kalaksi/docker-shatag)
 - [shatag documentation](https://bitbucket.org/maugier/shatag)
 
