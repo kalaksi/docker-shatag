@@ -11,10 +11,17 @@ This allows the information to be stored alongside the file. When copying the fi
 
 The ```docker-compose.yml``` contains an example of running ```shatagd``` for file monitoring and ```shatag``` for checksum verification.  
 
+### An alternative to shatag
+I wasn't satisfied with the complexity of deploying shatag for such a simple task. I think the tool for verifying file integrity should be
+easily available and simple to deploy.  
+  
+Therefore, I created an alternative tool (for Linux) with minimum amount of dependencies.  
+I named them checksumfile-tools and they are available here: https://github.com/kalaksi/backup-tools  
+
 ## Why use this container?
 **Simply put, this container has been written with simplicity and security in mind.**
 
-Surprisingly, _many_ community containers run unnecessarily with root privileges by default and don't provide help for dropping unneeded CAPabilities either.
+Many community containers run unnecessarily with root privileges by default and don't provide help for dropping unneeded CAPabilities either.
 Additionally, overly complex shell scripts and unofficial base images make it harder to verify the source.  
 
 To remedy the situation, these images have been written with security, simplicity and overall quality in mind.
