@@ -1,7 +1,7 @@
 # Copyright (c) 2018 kalaksi@users.noreply.github.com.
 # This work is licensed under the terms of the MIT license. For a copy, see <https://opensource.org/licenses/MIT>.
 
-FROM debian:10.4-slim AS base
+FROM debian:10.6-slim AS base
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # Daemon mode starts the shatagd daemon instead of one-time check with shatag.
